@@ -2,16 +2,16 @@ package com.gestion.empleados.entidades;
 
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,121 +19,100 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "empleados")
 public class Empleado {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @NotEmpty
-    private String nombre;
+	@NotEmpty
+	private String nombre;
 
-    @NotEmpty
-    private String apellido;
+	@NotEmpty
+	private String apellido;
 
-    @NotEmpty
-    @Email
-    private String email;
+	@NotEmpty
+	@Email
+	private String email;
 
-    @NotNull
-    private Integer telefono;
+	@NotNull
+	private int telefono;
 
-    @NotEmpty
-    private String sexo;
+	@NotEmpty
+	private String sexo;
 
-    @NotNull
-    private Integer salario;
+	@NotNull
+	private double salario;
 
-    @NotNull
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date fecha;
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fecha;
 
-    // Constructor
-    public Empleado() {}
+	public Empleado() {
+		super();
+	}
 
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getApellido() {
-        return apellido;
-    }
+	public String getApellido() {
+		return apellido;
+	}
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Integer getTelefono() {
-        return telefono;
-    }
+	public int getTelefono() {
+		return telefono;
+	}
 
-    public void setTelefono(Integer telefono) {
-        this.telefono = telefono;
-    }
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
+	}
 
-    public String getSexo() {
-        return sexo;
-    }
+	public String getSexo() {
+		return sexo;
+	}
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
 
-    public Integer getSalario() {
-        return salario;
-    }
+	public double getSalario() {
+		return salario;
+	}
 
-    public void setSalario(Integer salario) {
-        this.salario = salario;
-    }
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
 
-    public Date getFecha() {
-        return fecha;
-    }
+	public Date getFecha() {
+		return fecha;
+	}
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 
-    // Métodos toString(), equals() y hashCode()
-    @Override
-    public String toString() {
-        return "Empleado [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
-                + ", telefono=" + telefono + ", sexo=" + sexo + ", salario=" + salario + ", fecha=" + fecha + "]";
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        Empleado other = (Empleado) obj;
-        return id != null && id.equals(other.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return 31;
-    }
 }

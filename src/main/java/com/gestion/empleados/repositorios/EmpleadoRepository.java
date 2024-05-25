@@ -1,13 +1,9 @@
 package com.gestion.empleados.repositorios;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.gestion.empleados.entidades.Empleado;
 
-public interface EmpleadoRepository extends CrudRepository<Empleado, Long> {
+public interface EmpleadoRepository extends PagingAndSortingRepository<Empleado, Long>{
 
-    // Método para obtener todos los empleados con paginación
-    Page<Empleado> findAll(Pageable pageable);
 }
